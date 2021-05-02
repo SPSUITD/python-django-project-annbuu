@@ -16,7 +16,7 @@ def firstroom(request):
       #чтоб очистить форму
       #ставим истечение сессии по закрытию браузера
       request.session.set_expiry(0)
-      request.session['name1'] = form['name'].value
+      request.session['name1'] = form.cleaned_data['name']
       form.save()
       form = MessagesForm1
       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -41,7 +41,7 @@ def secondroom(request):
     form = MessagesForm2(request.POST)
     if form.is_valid():
       request.session.set_expiry(0)
-      request.session['name2'] = form['name'].value
+      request.session['name2'] = form.cleaned_data['name']
       form.save()
       form = MessagesForm2
       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -62,7 +62,7 @@ def thirdroom(request):
     form = MessagesForm3(request.POST)
     if form.is_valid():
       request.session.set_expiry(0)
-      request.session['name3'] = form['name'].value
+      request.session['name3'] = form.cleaned_data['name']
       form.save()
       form = MessagesForm3
       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -83,7 +83,7 @@ def fourthroom(request):
     form = MessagesForm4(request.POST)
     if form.is_valid():
       request.session.set_expiry(0)
-      request.session['name4'] = form['name'].value
+      request.session['name4'] = form.cleaned_data['name']
       form.save()
       form = MessagesForm4
       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -104,7 +104,7 @@ def fifthroom(request):
     form = MessagesForm5(request.POST)
     if form.is_valid():
       request.session.set_expiry(0)
-      request.session['name5'] = form['name'].value
+      request.session['name5'] = form.cleaned_data['name']
       form.save()
       form = MessagesForm5
       return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
